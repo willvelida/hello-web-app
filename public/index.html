@@ -10,11 +10,30 @@
 <body>
     <h1 class="text-center">Welcome to My Web App!</h1>
     <div class="text-center mt-4">
+        <p id="current-time"></p>
+    </div>
+    <div class="text-center mt-4">
         <a href="https://www.youtube.com/c/WillVelida" class="btn btn-primary">Visit My YouTube Channel</a>
     </div>
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function fetchTime() {
+            fetch('/api/time')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('current-time').textContent = `The current local time is: ${data.time}`;
+                })
+                .catch(error => console.error('Error fetching time:', error));
+        }
+
+        // Fetch time on page load
+        fetchTime();
+
+        // Optionally, refresh the time every minute
+        setInterval(fetchTime, 60000);
+    </script>
 </body>
 </html>

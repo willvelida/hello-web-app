@@ -31,7 +31,7 @@ jobs:
       with:
         tag_prefix: 'v'
         scheme: semver
-        increment: 'major'
+        increment: 'minor'
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
