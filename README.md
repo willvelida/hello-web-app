@@ -51,8 +51,7 @@ The workflow is defined in [`.github/workflows/docker-publish.yml`](.github/work
 1. Checkout the repository
 2. Set up Docker Buildx
 3. Log in to Docker Hub
-4. Increment the version using `reecetech/version-increment`
-5. Build and push the Docker image to Docker Hub
+4. Build and push the Docker image to Docker Hub
 
 ## License
 
